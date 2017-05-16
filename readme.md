@@ -7,7 +7,7 @@ Don't see a lot of newer examples online using GAS, figured someone else other t
 would like to see this as well so I'll put whatever I get compiled on Github.
    
 If you don't have a tool chain installed you can install binutils using [my tools setup][1] 
-or use the SGDK's toolchain [SGDK toolchain] [2].  If you are using the SGDK toolchain, just
+or use the SGDK's toolchain [SGDK toolchain][2].  If you are using the SGDK toolchain, just
 modify the GENDEV variable in my makefile to conform to your setup.
 
 [1]: https://gist.github.com/WillSams/76873e3f938dec2929be2ce6a661f782
