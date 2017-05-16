@@ -1,5 +1,7 @@
-Pong by by Pascal Bosquet (http://www.pascalorama.com/megadrive-m68000-programming/)
+Pong by by Pascal Bosquet 
 ====================================================================================
+Original code can be found here -> (http://www.pascalorama.com/megadrive-m68000-programming/)
+
 Just me poking around Pascal Bosquet's code to get this running in GNU Assembly (GAS).  I'm
 currently learning the M68000 and Mega Drive/Genesis programming, this code just took
 a bit figuring out how the header should look like and getting the makefile just right.
