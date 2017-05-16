@@ -2,70 +2,70 @@ rom_start:
 
 	| Sega Genesis ROM header
 	
-	.long	0x00FFE000	| Initial stack pointer value
-	.long	EntryPoint	| Start of our program in ROM
-	.long	INT	| Bus error
-	.long	INT	| Address error
-	.long	INT	| Illegal instruction
-	.long	INT	| Division by zero
-	.long	INT	| CHK exception
-	.long	INT	| TRAPV exception
-	.long	INT	| Privilege violation
-	.long	INT	| TRACE exception
-	.long	INT	| Line-A emulator
-	.long	INT	| Line-F emulator
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Spurious exception
-	.long	INT	| IRQ level 1
-	.long	INT	| IRQ level 2
-	.long	INT	| IRQ level 3
-	.long	HBL	| IRQ level 4 (horizontal retrace interrupt)
-	.long	INT	| IRQ level 5
-	.long	VBL	| IRQ level 6 (vertical retrace interrupt)
-	.long	INT	| IRQ level 7
-	.long	INT	| TRAP #00 exception
-	.long	INT	| TRAP #01 exception
-	.long	INT	| TRAP #02 exception
-	.long	INT	| TRAP #03 exception
-	.long	INT	| TRAP #04 exception
-	.long	INT	| TRAP #05 exception
-	.long	INT	| TRAP #06 exception
-	.long	INT	| TRAP #07 exception
-	.long	INT	| TRAP #08 exception
-	.long	INT	| TRAP #09 exception
-	.long	INT	| TRAP #10 exception
-	.long	INT	| TRAP #11 exception
-	.long	INT	| TRAP #12 exception
-	.long	INT	| TRAP #13 exception
-	.long	INT	| TRAP #14 exception
-	.long	INT	| TRAP #15 exception
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
-	.long	INT	| Unused (reserved)
+	.long	0x00FFE000		| Initial stack pointer value
+	.long	EntryPoint		| Start of our program in ROM
+	.long	Interrupt		| Bus error
+	.long	Interrupt		| Address error
+	.long	Interrupt		| Illegal instruction
+	.long	Interrupt		| Division by zero
+	.long	Interrupt		| CHK exception
+	.long	Interrupt		| TRAPV exception
+	.long	Interrupt		| Privilege violation
+	.long	Interrupt		| TRACE exception
+	.long	Interrupt		| Line-A emulator
+	.long	Interrupt		| Line-F emulator
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Spurious exception
+	.long	Interrupt		| IRQ level 1
+	.long	Interrupt		| IRQ level 2
+	.long	Interrupt		| IRQ level 3
+	.long	HBlank			| IRQ level 4 (horizontal retrace interrupt)
+	.long	Interrupt		| IRQ level 5
+	.long	VBlank			| IRQ level 6 (vertical retrace interrupt)
+	.long	Interrupt		| IRQ level 7
+	.long	Interrupt		| TRAP #00 exception
+	.long	Interrupt		| TRAP #01 exception
+	.long	Interrupt		| TRAP #02 exception
+	.long	Interrupt		| TRAP #03 exception
+	.long	Interrupt		| TRAP #04 exception
+	.long	Interrupt		| TRAP #05 exception
+	.long	Interrupt		| TRAP #06 exception
+	.long	Interrupt		| TRAP #07 exception
+	.long	Interrupt		| TRAP #08 exception
+	.long	Interrupt		| TRAP #09 exception
+	.long	Interrupt		| TRAP #10 exception
+	.long	Interrupt		| TRAP #11 exception
+	.long	Interrupt		| TRAP #12 exception
+	.long	Interrupt		| TRAP #13 exception
+	.long	Interrupt		| TRAP #14 exception
+	.long	Interrupt		| TRAP #15 exception
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
+	.long	Interrupt		| Unused (reserved)
 
 | ******************************************************************************
 | *************************** Sega Genesis ROM Info ****************************
@@ -195,14 +195,14 @@ Z80loop:
 
 	jmp      _main
 
-INT:    
+Interrupt:    
 	rte
 
 *| --- Do nothing for this demo ---
-HBL:
+HBlank:
 	rte
 
-VBL:
+VBlank:
     addq.l   #1,vtimer
 	rte
 
