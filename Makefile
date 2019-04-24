@@ -1,9 +1,10 @@
-GENDEV?=/opt/m68k
+GENDEV=/opt/m68k
 
 AS	= $(GENDEV)/bin/m68k-elf-as
 LD	= $(GENDEV)/bin/m68k-elf-ld
+READELF = $(GENDEV)/bin/m68k-elf-readelf
 
-DEBUGGER = gens
+DEBUGGER = $(GENDEV)/tools/dgen
 
 ASFLAGS = -m68000 --register-prefix-optional 
 LDFLAGS = -O1 -static -nostdlib  
@@ -24,6 +25,9 @@ $(BIN): $(OBJS)
 %.o: %.s 
 	@echo "AS $<"
 	@$(AS) $(ASFLAGS) $< -o $@
+
+symbols: $(OBJS)
+	$(READELF) --symbols $<
 
 run: all
 	$(DEBUGGER) $(BIN) 
