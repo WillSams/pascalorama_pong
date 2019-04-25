@@ -14,20 +14,26 @@ OBJS=pong.o
 ROM = pong
 BIN	= $(ROM).bin
 
-all:	$(BIN)
+all:	$(BIN) symbols dump
 
-clean:
-	rm -f $(BIN) && rm -f *.out && rm -f *.map && rm -f $(shell find . -name '*.o') 
+clean: 
+	rm -rf $(BIN) $(shell find . -name '*.o')  && rm -r $(ROM).dump symbols.txt || true
 
 $(BIN): $(OBJS)
 	$(LD) $(LDFLAGS) $< --oformat binary -o $@
 
-%.o: %.s 
+%.o: %.asm 
 	@echo "AS $<"
 	@$(AS) $(ASFLAGS) $< -o $@
-
+	
 symbols: $(OBJS)
-	$(READELF) --symbols $<
+	$(READELF) --symbols $< > symbols.txt
 
-run: all
-	$(DEBUGGER) $(BIN) 
+dump: 
+	$(OBJDUMP) --disassemble-all --target=binary --architecture=m68k \
+		--start-address=0x0000 $(BIN) > $(ROM).dump
+run:
+	$(DEBUGGER) -G 640x480 $(BIN)  
+
+	
+

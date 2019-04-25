@@ -15,7 +15,7 @@ For debugging, use [DGen][3].  To install DGen from source, follow these instruc
 	make && make install
 	chmod +x dgen
 
-[1]: https://gist.github.com/WillSams/ed5d01919095021397fa90e7dfbacb75
+[1]: https://gist.github.com/WillSams/c4cbf6235b467d8b595693969342237e
 [2]: https://github.com/Stephane-D/SGDK
 [3]: http://dgen.sourceforge.net
 
