@@ -1,3 +1,6 @@
+symbols.txt
+*.dump
+
 # Object files
 *.o
 *.obj
